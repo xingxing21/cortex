@@ -9,6 +9,7 @@
 
 use crate::{HookContext, HookType};
 use async_trait::async_trait;
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 
@@ -27,10 +28,6 @@ pub struct PromptHook {
     /// Whether the hook is enabled.
     #[serde(default = "default_true")]
     pub enabled: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl PromptHook {

@@ -4,6 +4,7 @@
 
 use std::time::Duration;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 
 use super::{TaskMeta, TaskResult, TaskType};
@@ -395,14 +396,6 @@ pub enum FinishReason {
     ToolUse,
     /// Content filter.
     ContentFilter,
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

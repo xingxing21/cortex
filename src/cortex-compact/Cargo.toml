@@ -8,6 +8,7 @@ description = "Auto-compaction for Cortex CLI conversations"
 workspace = true
 
 [dependencies]
+cortex-common = { path = "../cortex-common" }
 serde = { version = "1", features = ["derive"] }
 tracing = "0.1"
 thiserror = "1"

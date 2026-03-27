@@ -17,7 +17,7 @@ anyhow = { workspace = true }
 ignore = { workspace = true }
 nucleo-matcher = { workspace = true }
 thiserror = { workspace = true }
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "sync"] }
 tracing = { workspace = true }
 
 [dev-dependencies]

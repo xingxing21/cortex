@@ -2,6 +2,7 @@
 //!
 //! Handles compacting conversation context to stay within token limits.
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 
 use super::{TaskMeta, TaskType};
@@ -303,14 +304,6 @@ impl CompactResult {
         self.summary = Some(summary.into());
         self
     }
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

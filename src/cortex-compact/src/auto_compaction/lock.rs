@@ -5,10 +5,11 @@ use std::path::{Path, PathBuf};
 use std::time::{Duration, SystemTime};
 use tracing::{debug, warn};
 
+use cortex_common::timestamp_now;
+
 use crate::{CompactionError, Result};
 
 use super::config::COMPACTION_LOCK_FILE;
-use super::utils::timestamp_now;
 
 /// File-based lock for preventing concurrent compaction operations.
 ///

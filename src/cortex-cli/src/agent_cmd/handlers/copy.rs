@@ -3,9 +3,8 @@
 use anyhow::{Context, Result, bail};
 
 use crate::agent_cmd::cli::CopyArgs;
-use crate::agent_cmd::loader::{
-    get_agents_dir, load_all_agents, parse_frontmatter, read_file_with_encoding,
-};
+use crate::agent_cmd::loader::{get_agents_dir, load_all_agents, parse_frontmatter};
+use crate::utils::file::read_file_with_encoding;
 
 /// Copy/clone an existing agent with a new name.
 pub async fn run_copy(args: CopyArgs) -> Result<()> {

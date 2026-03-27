@@ -4,6 +4,7 @@
 //! All user-provided values (file paths, session IDs, etc.) are sanitized before
 //! being substituted into command templates to prevent command injection attacks.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::PathBuf;
@@ -183,10 +184,6 @@ pub struct Hook {
     /// Tool name matcher (for PreToolUse/PostToolUse hooks).
     #[serde(default)]
     pub tool_matcher: Option<String>,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl Hook {

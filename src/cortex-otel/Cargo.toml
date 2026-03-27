@@ -13,6 +13,7 @@ default = []
 otel = ["opentelemetry", "opentelemetry-otlp", "opentelemetry_sdk", "opentelemetry-semantic-conventions"]
 
 [dependencies]
+cortex-common = { workspace = true }
 tracing = { workspace = true }
 reqwest = { workspace = true }
 serde = { workspace = true }

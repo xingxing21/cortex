@@ -3,8 +3,9 @@
 //! Tracks the state of external services, providers, and dependencies.
 
 use std::collections::HashMap;
-use std::time::{Duration, SystemTime};
+use std::time::Duration;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -423,14 +424,6 @@ pub struct ServiceMetrics {
     pub error_rate: f64,
     /// Average latency.
     pub avg_latency_ms: u64,
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    SystemTime::now()
-        .duration_since(SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

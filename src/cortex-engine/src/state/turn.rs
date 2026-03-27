@@ -5,8 +5,9 @@
 
 use std::collections::HashMap;
 use std::sync::Arc;
-use std::time::{Duration, SystemTime};
+use std::time::Duration;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -452,14 +453,6 @@ pub enum TurnEvent {
     Failed { turn_id: String, error: String },
     /// Turn cancelled.
     Cancelled { turn_id: String },
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    SystemTime::now()
-        .duration_since(SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

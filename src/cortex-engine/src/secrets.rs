@@ -19,6 +19,7 @@ use aes_gcm::{
     aead::{Aead, OsRng, rand_core::RngCore},
 };
 use argon2::Argon2;
+use cortex_common::timestamp_now;
 use secrecy::{ExposeSecret, SecretString};
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
@@ -856,14 +857,6 @@ impl EnvSecretProvider {
             })
             .collect()
     }
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

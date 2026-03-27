@@ -7,6 +7,7 @@
 //! - Keyboard navigation (↑↓, 1-9, Enter, Esc)
 //! - Tab navigation for multiple questions
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
@@ -51,10 +52,6 @@ pub struct Question {
     pub required: bool,
     #[serde(default = "default_true")]
     pub allow_custom: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 /// A request for questions from the LLM
@@ -218,7 +215,11 @@ impl QuestionState {
     pub fn option_count(&self) -> usize {
         if let Some(q) = self.current_question() {
             let base = q.options.len();
-            if q.allow_custom { base + 1 } else { base }
+            if q.allow_custom {
+                base + 1
+            } else {
+                base
+            }
         } else {
             0
         }

@@ -1,5 +1,6 @@
 //! Update configuration types.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// Release channel for updates.
@@ -75,10 +76,6 @@ pub struct UpdateConfig {
     /// Custom software distribution URL (for testing/enterprise)
     #[serde(skip_serializing_if = "Option::is_none")]
     pub custom_url: Option<String>,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 fn default_5() -> u32 {

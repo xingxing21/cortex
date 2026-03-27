@@ -7,12 +7,13 @@ use std::sync::Arc;
 use std::time::Duration;
 use tracing::{debug, error, info};
 
+use cortex_common::timestamp_now;
+
 use crate::Result;
 
 use super::config::AutoCompactionConfig;
 use super::lock::CompactionLock;
 use super::log_pruner::{LogPruner, LogPruningResult};
-use super::utils::timestamp_now;
 use super::vacuumer::{DatabaseVacuumer, VacuumResult};
 
 /// Stats from a compaction run.

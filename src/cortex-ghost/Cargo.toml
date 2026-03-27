@@ -8,6 +8,7 @@ description = "Ghost commits for automatic undo in Cortex CLI"
 workspace = true
 
 [dependencies]
+cortex-common = { path = "../cortex-common" }
 tokio = { workspace = true, features = ["process"] }
 serde = { version = "1", features = ["derive"] }
 tracing = "0.1"

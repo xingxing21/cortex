@@ -1,5 +1,6 @@
 //! Server configuration.
 
+use cortex_common::default_true;
 use std::path::PathBuf;
 use std::time::Duration;
 
@@ -93,10 +94,6 @@ fn default_request_timeout() -> u64 {
 
 fn default_read_timeout() -> u64 {
     30 // 30 seconds for individual chunk reads
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl Default for ServerConfig {

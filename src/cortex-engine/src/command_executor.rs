@@ -3,6 +3,7 @@
 //! Provides utilities for executing commands with
 //! sandboxing, resource limits, and output capture.
 
+use cortex_common::default_true;
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::process::{ExitStatus, Stdio};
@@ -42,10 +43,6 @@ pub struct CommandConfig {
     /// Shell mode.
     #[serde(default)]
     pub shell: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl CommandConfig {

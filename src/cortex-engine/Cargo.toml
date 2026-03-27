@@ -40,7 +40,7 @@ cortex-migrations = { path = "../cortex-migrations" }
 cortex-experimental = { path = "../cortex-experimental" }
 
 # Async
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "sync", "fs", "net", "process", "time"] }
 tokio-stream = { workspace = true }
 tokio-util = "0.7"
 async-trait = { workspace = true }

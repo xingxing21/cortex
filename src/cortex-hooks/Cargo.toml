@@ -8,6 +8,7 @@ description = "Hook system for Cortex CLI (formatters, post-edit actions)"
 workspace = true
 
 [dependencies]
+cortex-common = { path = "../cortex-common" }
 tokio = { workspace = true, features = ["process", "sync"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"

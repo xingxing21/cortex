@@ -17,6 +17,7 @@ pub use undo::{UndoAction, UndoResult, UndoTask};
 
 use std::fmt;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 
 /// Task status.
@@ -304,14 +305,6 @@ pub enum ArtifactType {
     Json,
     /// Binary data.
     Binary,
-}
-
-/// Get current timestamp in seconds.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 /// Task queue for managing pending tasks.

@@ -9,8 +9,9 @@ use std::collections::HashMap;
 use std::fs::{self, File, OpenOptions};
 use std::io::{BufWriter, Write};
 use std::path::PathBuf;
-use std::time::{SystemTime, UNIX_EPOCH};
+use std::time::UNIX_EPOCH;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -549,14 +550,6 @@ fn format_timestamp(ts: u64) -> String {
     let secs = secs % 60;
 
     format!("{hours:02}:{mins:02}:{secs:02}")
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    SystemTime::now()
-        .duration_since(UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 /// Generate span ID.

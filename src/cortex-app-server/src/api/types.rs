@@ -1,5 +1,6 @@
 //! API request and response types.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 // ============================================================================
@@ -648,10 +649,6 @@ pub struct GitStashCreateRequest {
     pub message: Option<String>,
     #[serde(default = "default_true")]
     pub include_untracked: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 #[derive(Debug, Deserialize)]

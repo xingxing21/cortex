@@ -1,5 +1,6 @@
 //! OpenTelemetry configuration.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// OpenTelemetry settings.
@@ -55,10 +56,6 @@ impl Default for OtelSettings {
 
 fn default_service_name() -> String {
     "cortex-cli".to_string()
-}
-
-fn default_true() -> bool {
-    true
 }
 
 fn default_sampling_ratio() -> f64 {

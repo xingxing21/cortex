@@ -16,7 +16,7 @@ workspace = true
 cortex-common = { path = "../cortex-common" }
 cortex-mcp-types = { workspace = true }
 reqwest = { workspace = true }
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, features = ["rt", "sync", "process", "time"] }
 serde = { workspace = true }
 serde_json = { workspace = true }
 anyhow = { workspace = true }

@@ -46,7 +46,7 @@ clap_complete = { workspace = true }
 
 # For colored help output
 color-print = "0.3"
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "sync", "fs", "net", "process", "time"] }
 futures = { workspace = true }
 anyhow = { workspace = true }
 tracing = { workspace = true }

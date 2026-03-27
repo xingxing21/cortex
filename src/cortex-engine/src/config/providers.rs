@@ -1,5 +1,6 @@
 //! Custom provider configuration types.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -59,10 +60,6 @@ fn default_api_type() -> String {
 
 fn default_timeout() -> u64 {
     120
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl Default for CustomProviderConfig {

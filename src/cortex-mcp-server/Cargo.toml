@@ -14,7 +14,7 @@ workspace = true
 
 [dependencies]
 cortex-mcp-types = { workspace = true }
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "sync", "net", "time"] }
 serde_json = { workspace = true }
 anyhow = { workspace = true }
 tracing = { workspace = true }

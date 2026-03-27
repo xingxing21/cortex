@@ -1,6 +1,7 @@
 //! Search and replace across multiple files.
 
 use crate::Result;
+use cortex_common::default_true;
 use glob::Pattern;
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
@@ -21,10 +22,6 @@ pub struct SearchPattern {
     /// Whole word only.
     #[serde(default)]
     pub whole_word: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl SearchPattern {

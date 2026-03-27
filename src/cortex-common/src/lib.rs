@@ -14,6 +14,7 @@ pub mod http_client;
 pub mod model_presets;
 pub mod path_consistency;
 pub mod path_utils;
+pub mod serde_helpers;
 pub mod signal_safety;
 pub mod subprocess_env;
 pub mod subprocess_output;
@@ -36,6 +37,7 @@ pub use cwd_guard::{CwdGuard, in_directory, in_directory_result};
 pub use dirs::{AppDirs, get_app_dirs, get_cortex_home};
 pub use duration_utils::{
     MonotonicTimer, format_duration, format_rate, safe_duration_since, safe_rate,
+    timestamp_now, timestamp_now_millis,
 };
 pub use file_locking::{
     FileLockError, FileLockGuard, FileLockManager, FileLockResult, LockConfig, LockMode,
@@ -77,6 +79,7 @@ pub use truncate::{
     truncate_command, truncate_first_line, truncate_for_display, truncate_id, truncate_id_default,
     truncate_model_name, truncate_with_ellipsis, truncate_with_unicode_ellipsis,
 };
+pub use serde_helpers::{default_false, default_empty_string, default_empty_vec, default_true};
 
 #[cfg(feature = "cli")]
 pub use config_override::{CliConfigOverrides, ConfigOverride};

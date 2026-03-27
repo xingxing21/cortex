@@ -5,8 +5,9 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::Arc;
-use std::time::{Duration, SystemTime};
+use std::time::Duration;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -398,14 +399,6 @@ fn generate_session_id() -> String {
         .map(|d| d.as_micros())
         .unwrap_or(0);
     format!("exec_{ts:x}")
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    SystemTime::now()
-        .duration_since(SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

@@ -15,6 +15,7 @@ workspace = true
 [dependencies]
 # Internal
 cortex-engine = { workspace = true }
+cortex-common = { workspace = true }
 
 # HTTP
 reqwest = { workspace = true, features = ["json", "stream"] }

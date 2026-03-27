@@ -7,6 +7,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -549,14 +550,6 @@ fn get_available_space(path: &std::path::Path) -> Option<u64> {
     } else {
         None
     }
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 /// API connectivity health check.

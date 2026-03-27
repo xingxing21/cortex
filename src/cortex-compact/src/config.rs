@@ -1,5 +1,6 @@
 //! Compaction configuration.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// Configuration for auto-compaction.
@@ -23,10 +24,6 @@ pub struct CompactionConfig {
     /// Whether to preserve recent turns.
     #[serde(default = "default_preserve_recent")]
     pub preserve_recent_turns: usize,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 fn default_threshold() -> f32 {

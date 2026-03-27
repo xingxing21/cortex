@@ -4,6 +4,7 @@ use std::ffi::CString;
 use std::path::PathBuf;
 
 use clap::Parser;
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 use crate::landlock::apply_filesystem_rules;
@@ -27,10 +28,6 @@ pub enum SandboxPolicy {
         #[serde(default)]
         network_access: bool,
     },
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl SandboxPolicy {

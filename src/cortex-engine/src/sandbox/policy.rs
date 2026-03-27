@@ -4,6 +4,7 @@
 
 use std::path::{Path, PathBuf};
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// A writable root directory with optional read-only subpaths.
@@ -87,10 +88,6 @@ pub enum SandboxPolicyType {
         #[serde(default = "default_true")]
         allow_read_outside_workspace: bool,
     },
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl SandboxPolicyType {

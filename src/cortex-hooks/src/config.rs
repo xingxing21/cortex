@@ -1,6 +1,7 @@
 //! Hook configuration loading and management.
 
 use crate::{Hook, HookType, BUILTIN_FORMATTERS};
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::Path;
@@ -53,10 +54,6 @@ impl Default for FormatterSettings {
             disabled: Vec::new(),
         }
     }
-}
-
-fn default_true() -> bool {
-    true
 }
 
 /// Formatter override configuration.

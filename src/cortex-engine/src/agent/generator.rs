@@ -7,6 +7,7 @@
 
 use crate::client::{CompletionRequest, Message, create_client};
 use crate::error::{CortexError, Result};
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// Agent operation mode.
@@ -56,10 +57,6 @@ pub struct GeneratedAgent {
     /// Whether the agent can delegate to sub-agents.
     #[serde(default = "default_true")]
     pub can_delegate: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 /// The prompt used to generate agent configurations.

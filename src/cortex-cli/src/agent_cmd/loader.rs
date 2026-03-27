@@ -329,49 +329,7 @@ pub fn load_agents_from_dir(dir: &Path, source: AgentSource) -> Result<Vec<Agent
     Ok(agents)
 }
 
-/// Normalize line endings by converting CRLF to LF.
-/// This handles files with mixed line endings (common when editing on different OSes).
-fn normalize_line_endings(content: String) -> String {
-    // Replace all CRLF with LF to handle mixed line endings
-    content.replace("\r\n", "\n").replace('\r', "\n")
-}
-
-/// Read a file with automatic encoding detection (UTF-8 and UTF-16).
-/// Also normalizes line endings (CRLF -> LF) to handle mixed line endings.
-pub fn read_file_with_encoding(path: &Path) -> Result<String> {
-    let bytes =
-        std::fs::read(path).with_context(|| format!("Failed to read {}", path.display()))?;
-
-    // Check for UTF-16 BOM and convert if needed
-    let content = if bytes.starts_with(&[0xFF, 0xFE]) {
-        // UTF-16 LE BOM
-        let u16_chars: Vec<u16> = bytes[2..]
-            .chunks_exact(2)
-            .map(|chunk| u16::from_le_bytes([chunk[0], chunk[1]]))
-            .collect();
-        String::from_utf16(&u16_chars)
-            .with_context(|| format!("Invalid UTF-16 LE content in {}", path.display()))?
-    } else if bytes.starts_with(&[0xFE, 0xFF]) {
-        // UTF-16 BE BOM
-        let u16_chars: Vec<u16> = bytes[2..]
-            .chunks_exact(2)
-            .map(|chunk| u16::from_be_bytes([chunk[0], chunk[1]]))
-            .collect();
-        String::from_utf16(&u16_chars)
-            .with_context(|| format!("Invalid UTF-16 BE content in {}", path.display()))?
-    } else if bytes.starts_with(&[0xEF, 0xBB, 0xBF]) {
-        // UTF-8 BOM - skip it
-        String::from_utf8(bytes[3..].to_vec())
-            .with_context(|| format!("Invalid UTF-8 content in {}", path.display()))?
-    } else {
-        // Assume UTF-8
-        String::from_utf8(bytes)
-            .with_context(|| format!("Invalid UTF-8 content in {}", path.display()))?
-    };
-
-    // Normalize line endings to handle mixed CRLF/LF
-    Ok(normalize_line_endings(content))
-}
+use crate::utils::file::read_file_with_encoding;
 
 /// Load an agent from a markdown file with YAML frontmatter.
 pub fn load_agent_from_md(path: &Path, source: AgentSource) -> Result<AgentInfo> {

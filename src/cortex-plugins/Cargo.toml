@@ -12,6 +12,9 @@ description = "Complete WASM-based plugin system for Cortex CLI"
 workspace = true
 
 [dependencies]
+# Internal
+cortex-common = { path = "../cortex-common" }
+
 # Async runtime
 tokio = { workspace = true }
 

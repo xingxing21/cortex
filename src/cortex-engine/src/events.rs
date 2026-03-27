@@ -5,6 +5,7 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::{RwLock, broadcast};
 
@@ -477,14 +478,6 @@ fn generate_event_id() -> String {
         .map(|d| d.as_nanos())
         .unwrap_or(0);
     format!("evt_{ts:x}")
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

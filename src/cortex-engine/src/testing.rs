@@ -6,6 +6,7 @@
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -546,14 +547,6 @@ struct TestCase {
     test_fn: Box<dyn Fn(&TestFixture) -> Result<(), String> + Send + Sync>,
     skip: bool,
     skip_reason: Option<String>,
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    std::time::SystemTime::now()
-        .duration_since(std::time::SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
 }
 
 #[cfg(test)]

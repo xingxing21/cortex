@@ -37,7 +37,7 @@ ratatui = { workspace = true }
 crossterm = { workspace = true }
 
 # Async runtime
-tokio = { workspace = true, features = ["full", "sync", "time", "macros"] }
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "sync", "process", "time"] }
 tokio-stream = { workspace = true }
 async-channel = { workspace = true }
 async-trait = { workspace = true }

@@ -2,15 +2,8 @@
 
 use std::io;
 use std::path::Path;
-use std::time::SystemTime;
 
-/// Get current Unix timestamp.
-pub fn timestamp_now() -> u64 {
-    SystemTime::now()
-        .duration_since(SystemTime::UNIX_EPOCH)
-        .map(|d| d.as_secs())
-        .unwrap_or(0)
-}
+use cortex_common::timestamp_now;
 
 /// Get current timestamp as formatted string for filenames.
 pub fn chrono_timestamp() -> String {

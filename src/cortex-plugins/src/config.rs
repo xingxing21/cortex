@@ -1,5 +1,6 @@
 //! Plugin system configuration.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
@@ -159,10 +160,6 @@ fn default_memory_pages() -> u32 {
 
 fn default_timeout_ms() -> u64 {
     30000 // 30 seconds
-}
-
-fn default_true() -> bool {
-    true
 }
 
 fn default_max_concurrent() -> usize {

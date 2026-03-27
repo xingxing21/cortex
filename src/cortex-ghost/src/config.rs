@@ -1,5 +1,6 @@
 //! Ghost commit configuration.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// Configuration for ghost commits.
@@ -20,10 +21,6 @@ pub struct GhostConfig {
     /// Whether to show warnings for large files.
     #[serde(default = "default_true")]
     pub show_warnings: bool,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 fn default_max_file_size() -> i64 {

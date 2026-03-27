@@ -7,6 +7,7 @@ use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use tokio::sync::RwLock;
 
@@ -46,10 +47,6 @@ pub struct SandboxConfig {
     /// Environment whitelist.
     #[serde(default)]
     pub env_whitelist: HashSet<String>,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl Default for SandboxConfig {

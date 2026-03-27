@@ -11,7 +11,7 @@ workspace = true
 [dependencies]
 anyhow = { workspace = true }
 thiserror = { workspace = true }
-tokio = { workspace = true, features = ["full"] }
+tokio = { workspace = true, features = ["rt", "sync", "net", "time"] }
 serde = { workspace = true }
 serde_json = { workspace = true }
 tracing = { workspace = true }

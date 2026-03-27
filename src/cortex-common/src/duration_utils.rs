@@ -8,6 +8,38 @@
 
 use std::time::{Duration, Instant, SystemTime};
 
+/// Get the current Unix timestamp in seconds.
+///
+/// This is a convenience function for getting the current time as a Unix timestamp,
+/// commonly used for timestamps in session data, metrics, and logging.
+///
+/// # Returns
+/// The current Unix timestamp in seconds since the epoch.
+///
+/// # Examples
+/// ```
+/// use cortex_common::duration_utils::timestamp_now;
+/// let ts = timestamp_now();
+/// assert!(ts > 0);
+/// ```
+pub fn timestamp_now() -> u64 {
+    SystemTime::now()
+        .duration_since(SystemTime::UNIX_EPOCH)
+        .map(|d| d.as_secs())
+        .unwrap_or(0)
+}
+
+/// Get the current Unix timestamp in milliseconds.
+///
+/// # Returns
+/// The current Unix timestamp in milliseconds since the epoch.
+pub fn timestamp_now_millis() -> u64 {
+    SystemTime::now()
+        .duration_since(SystemTime::UNIX_EPOCH)
+        .map(|d| d.as_millis() as u64)
+        .unwrap_or(0)
+}
+
 /// Calculate elapsed duration safely, handling potential clock adjustments.
 ///
 /// When using `SystemTime`, clock adjustments can cause the end time to be

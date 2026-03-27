@@ -7,6 +7,7 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
+use cortex_common::timestamp_now;
 use serde::{Deserialize, Serialize};
 use tokio::process::Command;
 
@@ -491,15 +492,6 @@ fn generate_id() -> String {
         .unwrap()
         .as_nanos();
     format!("{now:x}")
-}
-
-/// Get current timestamp.
-fn timestamp_now() -> u64 {
-    use std::time::{SystemTime, UNIX_EPOCH};
-    SystemTime::now()
-        .duration_since(UNIX_EPOCH)
-        .unwrap()
-        .as_secs()
 }
 
 #[cfg(test)]

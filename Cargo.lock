@@ -916,6 +916,7 @@ dependencies = [
  "async-recursion",
  "async-trait",
  "chrono",
+ "cortex-common",
  "dirs 6.0.0",
  "futures",
  "regex",
@@ -983,6 +984,7 @@ dependencies = [
 name = "cortex-batch"
 version = "0.1.0"
 dependencies = [
+ "cortex-common",
  "glob",
  "once_cell",
  "serde",
@@ -1093,6 +1095,7 @@ dependencies = [
 name = "cortex-compact"
 version = "0.1.0"
 dependencies = [
+ "cortex-common",
  "libc",
  "serde",
  "tempfile",
@@ -1264,6 +1267,7 @@ name = "cortex-ghost"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "cortex-common",
  "serde",
  "tempfile",
  "thiserror 1.0.69",
@@ -1276,6 +1280,7 @@ name = "cortex-hooks"
 version = "0.1.0"
 dependencies = [
  "async-trait",
+ "cortex-common",
  "dirs 5.0.1",
  "glob",
  "lazy_static",
@@ -1301,6 +1306,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "cortex-common",
  "landlock",
  "libc",
  "seccompiler 0.4.0",
@@ -1434,6 +1440,7 @@ dependencies = [
 name = "cortex-otel"
 version = "0.0.7"
 dependencies = [
+ "cortex-common",
  "opentelemetry",
  "opentelemetry-otlp",
  "opentelemetry-semantic-conventions",
@@ -1450,6 +1457,7 @@ dependencies = [
  "anyhow",
  "async-trait",
  "chrono",
+ "cortex-common",
  "dirs 6.0.0",
  "ed25519-dalek",
  "hex",
@@ -1826,6 +1834,7 @@ name = "cortex-update"
 version = "0.0.7"
 dependencies = [
  "chrono",
+ "cortex-common",
  "cortex-engine",
  "dirs 6.0.0",
  "flate2",

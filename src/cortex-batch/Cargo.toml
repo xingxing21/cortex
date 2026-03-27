@@ -8,6 +8,7 @@ description = "Batch operations and MultiEdit tools for Cortex CLI"
 workspace = true
 
 [dependencies]
+cortex-common = { path = "../cortex-common" }
 tokio = { workspace = true, features = ["fs", "time", "sync"] }
 serde = { version = "1", features = ["derive"] }
 tracing = "0.1"

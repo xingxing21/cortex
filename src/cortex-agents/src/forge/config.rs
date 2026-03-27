@@ -26,6 +26,7 @@
 //! // In real use: let config = loader.load().await?;
 //! ```
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
@@ -87,10 +88,6 @@ pub struct RuleConfig {
     /// Additional rule-specific options.
     #[serde(default, flatten)]
     pub options: HashMap<String, toml::Value>,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 impl Default for RuleConfig {

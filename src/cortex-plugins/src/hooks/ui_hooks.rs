@@ -9,6 +9,7 @@
 //! - Control widget positioning and sizing
 
 use async_trait::async_trait;
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -814,10 +815,6 @@ pub struct LayoutPanel {
     /// Panel title
     #[serde(default)]
     pub title: Option<String>,
-}
-
-fn default_true() -> bool {
-    true
 }
 
 /// Layout configuration from plugin

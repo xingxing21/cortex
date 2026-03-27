@@ -1,5 +1,6 @@
 //! Execution configuration types.
 
+use cortex_common::default_true;
 use serde::{Deserialize, Serialize};
 
 /// Execution configuration for runtime behavior.
@@ -72,10 +73,6 @@ fn default_max_retries() -> u32 {
 
 fn default_retry_delay_ms() -> u64 {
     1000
-}
-
-fn default_true() -> bool {
-    true
 }
 
 fn default_max_file_size() -> u64 {
